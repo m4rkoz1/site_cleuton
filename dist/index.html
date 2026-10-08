@@ -11,8 +11,10 @@
   <link rel="stylesheet" href="creator.css">
   <link rel="stylesheet" href="hammock.css">
   <link rel="stylesheet" href="filters.css">
+  <link rel="stylesheet" href="cart.css">
   <script defer src="products.js"></script>
   <script defer src="app.js"></script>
+  <script defer src="cart.js"></script>
   <script defer src="hammock.js"></script>
 </head>
 <body>
@@ -20,15 +22,15 @@
   <div class="topline">Do catálogo pra sua casa. Converse direto com o Cleuton.</div>
   <header class="header wrap">
     <a class="brand" href="#" aria-label="Cleuton, início"><img src="assets/cleuton-v2.png" alt="" width="64" height="64"><span>cleuton<span class="brand-dot">.</span><small>SEU JEITO DE COMPRAR</small></span></a>
-    <nav aria-label="Principal"><a href="#produtos">Produtos</a><a class="contact whatsapp" href="https://wa.me/5521986451095">Fale com o Cleuton <span aria-hidden="true">↗</span></a></nav>
+    <nav aria-label="Principal"><a href="#produtos">Produtos</a><button class="contact cart-open" type="button" aria-haspopup="dialog" aria-controls="cart-dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 3h2l3 12h10l3-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>Carrinho <span class="cart-count">0</span></button></nav>
   </header>
   <main>
     <section class="hero wrap" aria-labelledby="hero-title">
-      <div class="hero-copy"><span class="eyebrow">BEM-VINDO À LOJA DO CLEUTON</span><h1>Escolheu?<br><span>Chama o Cleuton.</span></h1><p>Confira os produtos e faça seu pedido pelo WhatsApp. Atendimento direto, de um jeito simples.</p><a class="button yellow" href="#produtos">Ver produtos</a></div>
+      <div class="hero-copy"><span class="eyebrow">BEM-VINDO À LOJA DO CLEUTON</span><h1>Escolheu?<br><span>Chama o Cleuton.</span></h1><p>Junte seus produtos no carrinho e envie o pedido completo pelo WhatsApp. Atendimento direto, de um jeito simples.</p><a class="button yellow" href="#produtos">Ver produtos</a></div>
       <div class="hero-art hammock-art"><div class="sun" aria-hidden="true"></div><div class="hammock-stage" id="hammock-stage"><img src="assets/cleuton-rede.png" alt="Cleuton de óculos escuros, relaxando em uma rede laranja e preta" width="600" height="400"></div><button class="motion-toggle" type="button" aria-pressed="false" aria-controls="hammock-stage">Pausar balanço</button></div>
     </section>
     <section class="catalog wrap" id="produtos" aria-labelledby="catalog-title">
-      <div class="section-heading"><div><span class="eyebrow">NOSSA VITRINE · 33 PRODUTOS</span><h2 id="catalog-title">Produtos do Cleuton</h2></div><span class="catalog-note">Seu pedido começa com uma conversa.</span></div>
+      <div class="section-heading"><div><span class="eyebrow">NOSSA VITRINE · 33 PRODUTOS</span><h2 id="catalog-title">Produtos do Cleuton</h2></div><span class="catalog-note">Escolha tudo. Envie o pedido no final.</span></div>
       <p class="catalog-info">Confira as opções, disponibilidade e condições pelo WhatsApp. Valores consultados em 08/10/2026.</p>
       <div class="catalog-controls">
         <label class="search-label" for="product-search">Buscar produtos</label>
@@ -41,7 +43,7 @@
       <div id="soldout-heading"><h2 class="soldout-heading">Esgotados por enquanto</h2><p class="catalog-info">Fale com o Cleuton para consultar a reposição.</p></div>
       <div id="soldout-list"></div>
     </section>
-    <section class="how wrap" aria-labelledby="how-title"><div><span class="eyebrow">SIMPLES ASSIM</span><h2 id="how-title">Da escolha ao pedido.</h2></div><ol><li><span>01</span><div><h3>Escolha seu produto</h3><p>Veja os detalhes aqui na vitrine.</p></div></li><li><span>02</span><div><h3>Clique em comprar</h3><p>O WhatsApp abre com o produto na mensagem.</p></div></li><li><span>03</span><div><h3>Combine com o Cleuton</h3><p>Confirme disponibilidade, pagamento e entrega.</p></div></li></ol></section>
+    <section class="how wrap" aria-labelledby="how-title"><div><span class="eyebrow">SIMPLES ASSIM</span><h2 id="how-title">Da escolha ao pedido.</h2></div><ol><li><span>01</span><div><h3>Escolha seus produtos</h3><p>Adicione tudo o que quiser ao carrinho.</p></div></li><li><span>02</span><div><h3>Revise seu carrinho</h3><p>Ajuste as quantidades e confira o total.</p></div></li><li><span>03</span><div><h3>Finalize pelo WhatsApp</h3><p>Envie a lista ao Cleuton e combine pagamento e entrega.</p></div></li></ol></section>
     <section class="help wrap"><div><h2>Ficou com alguma dúvida?</h2><p>Fale comigo antes de fazer seu pedido.</p></div><a class="button white whatsapp" href="https://wa.me/5521986451095?text=Ol%C3%A1%2C%20Cleuton!%20Tenho%20uma%20d%C3%BAvida%20sobre%20os%20produtos.">Conversar no WhatsApp</a></section>
   </main>
   <footer class="wrap"><a class="footer-brand" href="#">cleuton<span>.</span></a><p>© <span id="year"></span> Cleuton</p><a class="whatsapp" href="https://wa.me/5521986451095">(21) 98645-1095</a></footer>
@@ -49,5 +51,13 @@
     <div><p class="creator-credit">Site criado por <a href="https://mscunha.cc" target="_blank" rel="noopener noreferrer">mscunha.cc</a></p><p class="creator-headline">Seu negócio merece ser visto.</p><p class="creator-copy">Conquiste clientes com um site feito para você.</p></div>
     <a class="button creator-cta" href="https://wa.me/5521998613487?text=Ol%C3%A1!%20Vi%20o%20site%20do%20Cleuton%20e%20quero%20um%20site%20para%20o%20meu%20neg%C3%B3cio.%20Vamos%20conversar%3F" target="_blank" rel="noopener noreferrer">Quero um site assim<span>(21) 99861-3487</span></a>
   </aside>
+  <p id="cart-feedback" class="cart-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+  <div id="cart-bar" class="cart-bar" hidden><div><strong><span class="cart-count">0</span> <span id="cart-item-label">itens</span> no carrinho</strong><span id="cart-bar-total"></span></div><button class="button yellow cart-open" type="button" aria-haspopup="dialog" aria-controls="cart-dialog">Ver carrinho <span aria-hidden="true">→</span></button></div>
+  <dialog id="cart-dialog" class="cart-dialog" aria-labelledby="cart-title">
+    <div class="cart-header"><div><span class="eyebrow">SEU PEDIDO</span><h2 id="cart-title">Meu carrinho</h2></div><button id="cart-close" class="cart-close" type="button" aria-label="Fechar carrinho">×</button></div>
+    <div id="cart-empty" class="cart-empty"><h3>Seu carrinho está vazio</h3><p>Escolha os produtos na vitrine para montar seu pedido.</p><button class="button yellow" id="cart-continue" type="button">Continuar comprando</button></div>
+    <div id="cart-items" class="cart-items"></div>
+    <div id="cart-summary" class="cart-summary" hidden><div class="cart-total"><span>Total dos produtos</span><strong id="cart-total"></strong></div><p class="cart-disclaimer">Valor estimado, sem frete. Confirme opções, preços, disponibilidade, pagamento e entrega com o Cleuton.</p><a id="cart-checkout" class="button buy whatsapp" target="_blank" rel="noopener noreferrer"><img class="whatsapp-icon" src="assets/whatsapp.svg" alt="" aria-hidden="true" width="20" height="20">Finalizar pelo WhatsApp</a><button class="cart-keep-shopping" id="cart-keep-shopping" type="button">Continuar comprando</button></div>
+  </dialog>
 </body>
 </html>

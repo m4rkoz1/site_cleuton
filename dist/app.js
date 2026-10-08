@@ -1,6 +1,5 @@
 const phone = '5521986451095';
 const currency = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
-const whatsappIcon='<img class="whatsapp-icon" src="assets/whatsapp.svg" alt="" aria-hidden="true" width="20" height="20">';
 const productCards = new Map();
 products.forEach((product,index)=>{
  const card=document.createElement('article');card.className='product'+(product.soldOut?' soldout':'');
@@ -11,9 +10,7 @@ products.forEach((product,index)=>{
  const title=document.createElement('h3');title.textContent=product.name;
  const price=document.createElement('div');price.className='price';price.textContent=currency.format(product.price);
  const condition=document.createElement('span');condition.className='price-condition';condition.textContent=product.pix?'no Pix':'Preço anunciado';
- const buy=document.createElement('a');buy.className='button buy';buy.innerHTML=whatsappIcon+(product.soldOut?' Consultar reposição':' Comprar');buy.setAttribute('aria-label',(product.soldOut?'Consultar reposição de ':'Comprar ')+product.name+' pelo WhatsApp');
- const text=product.soldOut?'Olá, Cleuton! Gostaria de saber quando o produto '+product.name+' estará disponível novamente.':'Olá, Cleuton! Tenho interesse em comprar '+product.name+'. Vi o preço de '+currency.format(product.price)+(product.pix?' no Pix':'')+' no site. Pode confirmar a opção, o valor, a disponibilidade e a entrega?';
- buy.href='https://wa.me/'+phone+'?text='+encodeURIComponent(text);buy.target='_blank';buy.rel='noopener noreferrer';
+ const buy=document.createElement('button');buy.type='button';buy.className='button buy add-to-cart';buy.textContent=product.soldOut?'Indisponível':'Adicionar ao carrinho';buy.disabled=Boolean(product.soldOut);buy.dataset.productId=product.id;buy.setAttribute('aria-label',product.soldOut?product.name+' indisponível':'Adicionar '+product.name+' ao carrinho');
  info.append(title,price,condition,buy);card.append(visual,info);document.getElementById(product.soldOut?'soldout-list':'product-list').append(card);productCards.set(product.id,card);
 });
 document.querySelectorAll('.whatsapp').forEach(a=>{a.target='_blank';a.rel='noopener noreferrer'});

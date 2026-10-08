@@ -1,6 +1,6 @@
 # Cleuton
 
-Vitrine de 33 produtos com fotos, preços e pedidos pelo WhatsApp.
+Vitrine de 33 produtos com fotos, preços, busca, categorias e carrinho. O cliente reúne os itens e envia o pedido completo pelo WhatsApp apenas ao finalizar.
 
 ## Abrir localmente
 
@@ -41,7 +41,8 @@ Edite `dist/products.js`, atualize as fotos em `dist/assets/products/` quando ne
 
 - `dist/index.html`: página da loja.
 - `dist/products.js`: catálogo, preços, condições Pix e indicação de esgotados.
-- `dist/app.js`: cartões e mensagens de compra pelo WhatsApp.
+- `dist/app.js`: cartões de produtos, busca e filtros de categoria.
+- `dist/cart.js` e `dist/cart.css`: carrinho com quantidades, remoção, total estimado e finalização pelo WhatsApp. A seleção é salva no navegador; produtos esgotados não podem ser adicionados. Não há pagamento online nem reserva de estoque.
 - `dist/filters.css`: busca de produtos e filtros de categoria. A página abre com todos os produtos; a busca ignora acentos e pode ser combinada com uma categoria.
 - `dist/hammock.css` e `dist/hammock.js`: balanço suave do Cleuton na rede, com botão para pausar e movimento reduzido.
 - `dist/assets/`: mascotes e fotos dos produtos.
