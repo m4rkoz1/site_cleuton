@@ -1,0 +1,6 @@
+# Somente os arquivos necessários para a imagem entram no contexto.
+**
+!Dockerfile
+!nginx.conf
+!dist/
+!dist/**
