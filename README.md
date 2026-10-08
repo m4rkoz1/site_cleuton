@@ -8,7 +8,7 @@ Com Node.js instalado, execute `node preview.cjs` e abra `http://127.0.0.1:4173`
 
 ## Deploy no EasyPanel com Dockerfile
 
-O Dockerfile na raiz já inclui o site completo, servido por Nginx na porta interna **8080**. O contêiner roda sem usuário root, inclui verificação de saúde e valida a configuração do Nginx durante o build. Não precisa de Node.js, banco de dados, volumes ou variáveis de ambiente em produção.
+O Dockerfile na raiz já inclui o site completo, servido por Nginx na porta interna **80**. O contêiner inclui verificação de saúde e valida a configuração do Nginx durante o build. Não precisa de Node.js, banco de dados, volumes ou variáveis de ambiente em produção.
 
 1. Crie um serviço do tipo **App** no EasyPanel.
 2. Em **Source**, selecione **GitHub** e configure:
@@ -16,22 +16,22 @@ O Dockerfile na raiz já inclui o site completo, servido por Nginx na porta inte
    - Branch: `main`
    - Build Path: `/`
 3. Em **Build**, escolha **Dockerfile** e informe `Dockerfile` como caminho.
-4. Em **Domains**, configure `cleuton.com.br`, caminho `/`, protocolo interno HTTP e porta de destino **8080**. Configure a mesma porta no domínio automático de teste, se usar.
+4. Em **Domains**, configure `cleuton.com.br`, caminho `/`, protocolo interno HTTP e porta de destino **80**. Configure a mesma porta no domínio automático de teste, se usar.
 5. Aponte o registro DNS **A** de `cleuton.com.br` para o IP público do servidor do EasyPanel. Se usar `www.cleuton.com.br`, adicione esse domínio ao serviço e configure seu DNS também.
 6. Ative HTTPS no domínio e clique em **Deploy**. Confira o resultado do build e os logs do serviço.
 
-Use o domínio do serviço para testar antes de mudar o DNS. Não é necessário publicar uma porta externa manualmente: o proxy do EasyPanel encaminha as requisições para a porta 8080 do contêiner. Deixe o comando de inicialização padrão da imagem.
+Use o domínio do serviço para testar antes de mudar o DNS. Não é necessário publicar uma porta externa manualmente: o proxy do EasyPanel encaminha as requisições para a porta 80 do contêiner. Deixe o comando de inicialização padrão da imagem.
 
-Referências: [App Service do EasyPanel](https://easypanel.io/docs/services/app) e [imagem Nginx sem root](https://hub.docker.com/r/nginxinc/nginx-unprivileged/).
+Referências: [App Service do EasyPanel](https://easypanel.io/docs/services/app) e [imagem oficial Nginx](https://hub.docker.com/_/nginx/).
 
 ### Testar com Docker localmente
 
 ```sh
 docker build -t cleuton-site .
-docker run --rm --name cleuton-site -p 8080:8080 cleuton-site
+docker run --rm --name cleuton-site -p 80:80 cleuton-site
 ```
 
-Abra `http://localhost:8080`. Para consultar a saúde do contêiner, use `docker inspect --format '{{.State.Health.Status}}' cleuton-site`.
+Abra `http://localhost:80`. Para consultar a saúde do contêiner, use `docker inspect --format '{{.State.Health.Status}}' cleuton-site`.
 
 ### Atualizar os produtos
 
