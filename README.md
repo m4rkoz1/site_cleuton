@@ -11,6 +11,7 @@ Com Node.js instalado, execute `node preview.cjs` e abra `http://127.0.0.1:4173`
 - `dist/index.html`: página da loja.
 - `dist/products.js`: catálogo, preços, condições Pix e indicação de esgotados.
 - `dist/app.js`: cartões e mensagens de compra pelo WhatsApp.
+- `dist/hammock.css` e `dist/hammock.js`: balanço suave do Cleuton na rede, com botão para pausar e movimento reduzido.
 - `dist/assets/`: mascotes e fotos dos produtos.
 - `dist/style.css`, `dist/catalog.css`, `dist/creator.css`: estilos responsivos.
 
