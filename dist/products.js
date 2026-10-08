@@ -34,3 +34,17 @@ const products = [
 ['58265429901','Perfume Saviour Grandeur EDP Masculino 100 ml',180.5,1,1,'br-11134207-820ln-mrdmwtdnn1tw6f'],
 ['58204114229','Smartwatch HW8 PRO+ Super Premium',158.65,1,1,'br-11134207-820lu-mnq7v4abasxt63']
 ].map(([id,name,price,pix,soldOut,sourcePhoto])=>({id,name,price,pix:!!pix,soldOut:!!soldOut,sourcePhoto,image:'assets/products/'+id+'.webp'}));
+
+const categoryGroups = [
+ ['Suplementos',['58265677174','58259970539']],
+ ['Acessórios',['22099313420','58259969584','58201605597','58217843982','58217847123','58253538761','58210360983']],
+ ['Fones de ouvido e áudio',['58260509753','58210358808','58251600851','18598034949','58261711635']],
+ ['Smartwatches',['58203737342','58259985175','58259981441','58259985606','22999454271','58203396209','58204114229']],
+ ['Casa e cozinha',['23394815687','22399676852']],
+ ['Perfumes',['58265438958','58265439108','58265438743','58265433827','58265429901']],
+ ['Beleza',['58262941931']],
+ ['Automotivo',['58253542867','58267851071']],
+ ['Variedades',['58210356586','19898667386']]
+];
+const categoryByProduct = new Map(categoryGroups.flatMap(([category,ids])=>ids.map(id=>[id,category])));
+products.forEach(product=>{product.category=categoryByProduct.get(product.id)||'Variedades'});

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="catalog.css">
   <link rel="stylesheet" href="creator.css">
   <link rel="stylesheet" href="hammock.css">
+  <link rel="stylesheet" href="filters.css">
   <script defer src="products.js"></script>
   <script defer src="app.js"></script>
   <script defer src="hammock.js"></script>
@@ -26,7 +27,20 @@
       <div class="hero-copy"><span class="eyebrow">BEM-VINDO À LOJA DO CLEUTON</span><h1>Escolheu?<br><span>Chama o Cleuton.</span></h1><p>Confira os produtos e faça seu pedido pelo WhatsApp. Atendimento direto, de um jeito simples.</p><a class="button yellow" href="#produtos">Ver produtos</a></div>
       <div class="hero-art hammock-art"><div class="sun" aria-hidden="true"></div><div class="hammock-stage" id="hammock-stage"><img src="assets/cleuton-rede.png" alt="Cleuton de óculos escuros, relaxando em uma rede laranja e preta" width="600" height="400"></div><button class="motion-toggle" type="button" aria-pressed="false" aria-controls="hammock-stage">Pausar balanço</button></div>
     </section>
-    <section class="catalog wrap" id="produtos" aria-labelledby="catalog-title"><div class="section-heading"><div><span class="eyebrow">NOSSA VITRINE · 33 PRODUTOS</span><h2 id="catalog-title">Produtos do Cleuton</h2></div><span class="catalog-note">Seu pedido começa com uma conversa.</span></div><p class="catalog-info">Confira as opções, disponibilidade e condições pelo WhatsApp. Valores consultados em 08/10/2026.</p><div id="product-list"></div><h2 class="soldout-heading">Esgotados por enquanto</h2><p class="catalog-info">Fale com o Cleuton para consultar a reposição.</p><div id="soldout-list"></div></section>
+    <section class="catalog wrap" id="produtos" aria-labelledby="catalog-title">
+      <div class="section-heading"><div><span class="eyebrow">NOSSA VITRINE · 33 PRODUTOS</span><h2 id="catalog-title">Produtos do Cleuton</h2></div><span class="catalog-note">Seu pedido começa com uma conversa.</span></div>
+      <p class="catalog-info">Confira as opções, disponibilidade e condições pelo WhatsApp. Valores consultados em 08/10/2026.</p>
+      <div class="catalog-controls">
+        <label class="search-label" for="product-search">Buscar produtos</label>
+        <div class="search-row"><div class="search-field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg><input id="product-search" type="search" placeholder="O que você está procurando?" autocomplete="off" aria-controls="product-list soldout-list"></div><button id="reset-filters" class="reset-filters" type="button" disabled>Limpar filtros</button></div>
+        <div id="category-filters" class="category-filters" role="group" aria-label="Filtrar por categoria"></div>
+      </div>
+      <p id="result-count" class="result-count" role="status" aria-live="polite" aria-atomic="true"></p>
+      <div id="empty-results" class="empty-results" hidden><h3>Nenhum produto encontrado</h3><p>Tente outro nome ou limpe os filtros para ver toda a vitrine.</p></div>
+      <div id="product-list"></div>
+      <div id="soldout-heading"><h2 class="soldout-heading">Esgotados por enquanto</h2><p class="catalog-info">Fale com o Cleuton para consultar a reposição.</p></div>
+      <div id="soldout-list"></div>
+    </section>
     <section class="how wrap" aria-labelledby="how-title"><div><span class="eyebrow">SIMPLES ASSIM</span><h2 id="how-title">Da escolha ao pedido.</h2></div><ol><li><span>01</span><div><h3>Escolha seu produto</h3><p>Veja os detalhes aqui na vitrine.</p></div></li><li><span>02</span><div><h3>Clique em comprar</h3><p>O WhatsApp abre com o produto na mensagem.</p></div></li><li><span>03</span><div><h3>Combine com o Cleuton</h3><p>Confirme disponibilidade, pagamento e entrega.</p></div></li></ol></section>
     <section class="help wrap"><div><h2>Ficou com alguma dúvida?</h2><p>Fale comigo antes de fazer seu pedido.</p></div><a class="button white whatsapp" href="https://wa.me/5521986451095?text=Ol%C3%A1%2C%20Cleuton!%20Tenho%20uma%20d%C3%BAvida%20sobre%20os%20produtos.">Conversar no WhatsApp</a></section>
   </main>

@@ -42,6 +42,7 @@ Edite `dist/products.js`, atualize as fotos em `dist/assets/products/` quando ne
 - `dist/index.html`: página da loja.
 - `dist/products.js`: catálogo, preços, condições Pix e indicação de esgotados.
 - `dist/app.js`: cartões e mensagens de compra pelo WhatsApp.
+- `dist/filters.css`: busca de produtos e filtros de categoria. A página abre com todos os produtos; a busca ignora acentos e pode ser combinada com uma categoria.
 - `dist/hammock.css` e `dist/hammock.js`: balanço suave do Cleuton na rede, com botão para pausar e movimento reduzido.
 - `dist/assets/`: mascotes e fotos dos produtos.
 - `dist/style.css`, `dist/catalog.css`, `dist/creator.css`: estilos responsivos.
